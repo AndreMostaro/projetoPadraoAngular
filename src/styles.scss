@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.p-inputtext {
+  border-radius: 10px !important;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.p-inputtext.send {
+  border-bottom-right-radius: 0px!important;
+  border-top-right-radius: 0px!important;
+}
+
+.p-dropdown {
+border-radius: 10px !important;
+}

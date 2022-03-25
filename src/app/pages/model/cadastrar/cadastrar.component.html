@@ -1,0 +1,41 @@
+<div clas="container">
+  <h1>Cadastrar Model</h1>
+  <p-panel header="Dados da Proposta" styleClass="ml-2 mt-2 ">
+      <div class="p-fluid p-formgrid p-grid">
+          <div class="row">
+              <div class="p-field mt-2 col-3">
+                  <label for="nome">NOME</label>
+                  <input type="text" pInputText id="nome" [(ngModel)]="modelObject.nome"
+                      />
+              </div>
+              <div class="p-field mt-2 col-2">
+                  <label for="cpf">CPF</label>
+                  <input type="text" pInputText id="cpf" [(ngModel)]="modelObject.cpf"
+                  />
+              </div>
+              <div class="p-field mt-2 col-2">
+                  <label for="email">EMAIL</label>
+                  <input type="text" pInputText id="email" [(ngModel)]="modelObject.email"
+                  />
+              </div>
+
+<!--               <div class="p-field mt-2 col-2">
+                  <label for="dataNascimento">Data Liberação</label>
+                  <p-calendar id="dataNascimento" [showTime]="true" [(ngModel)]="modelObject.dataNascimento" [showIcon]="false"
+                  [dateFormat]="'dd/mm/yy'" [maxlength]="10" ></p-calendar>
+              </div> -->
+
+          </div>
+      </div>
+      <div class="mt-4" style="text-align: end; ">
+          <button  pButton pRipple label="Limpar Formulário" icon="pi pi-times" class="p-button-sm p-button-rounded p-button-secondary mr-2"
+          (click)="limparForm()" style="margin-right: 1rem;"></button>
+          <button  pButton pRipple label="Cadastrar Model" icon="pi pi-plus" class="p-button-sm p-button-rounded p-button-success "
+          (click)="cadastrarModel()"></button>
+      </div>
+  </p-panel>
+
+</div>
+
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
