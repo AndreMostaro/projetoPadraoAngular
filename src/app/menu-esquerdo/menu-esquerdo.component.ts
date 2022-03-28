@@ -40,18 +40,6 @@ export class MenuEsquerdoComponent implements OnInit {
             label: 'Listar por ID',
             routerLink: '/listar-id'
           },
-          {
-            label: 'Atualizar',
-            routerLink: '/atualizar'
-          },
-          {
-            label: 'Deletar por ID',
-            routerLink: '/deletar-id'
-          },
-          {
-            label: 'Ativar por ID',
-            routerLink: '/ativar-id'
-          },
         ],
       },
       {

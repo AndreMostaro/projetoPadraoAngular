@@ -10,7 +10,12 @@ import { DetalhesModel } from 'src/models/detalhes-model';
 })
 export class ListarTodosComponent implements OnInit {
 
+  submitted = false;
   detalhesDialog = false;
+  editarDialog = false;
+
+  id: string = "";
+  modelObject: Model | any;
 
   modelList: Model[] = [];
   modelDetalhesList: DetalhesModel[] = [];
@@ -35,4 +40,18 @@ export class ListarTodosComponent implements OnInit {
   hideDetalhesDialog(): void {
     this.detalhesDialog = false;
   }
+
+  openEditarDialog(model: Model): void {
+
+    this.editarDialog = true;
+  }
+
+  deleteDeletarModel(): void {
+    this.modelService.deletarPorIdModel(this.id);
+  }
+
+  putAtivarModel(): void {
+    this.modelService.ativarPorIdModel(this.id);
+  }
+
 }

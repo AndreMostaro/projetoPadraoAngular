@@ -4,16 +4,16 @@
   styleClass="p-datatable-sm p-datatable-gridlines mt-5">
     <ng-template pTemplate="colgroup">
       <colgroup>
-        <col style="width:9%">
         <col style="width:7%">
-        <col style="width:9%">
-        <col style="width:9%">
-        <col style="width:9%">
         <col style="width:15%">
-        <col style="width:13%">
-        <col style="width:9%">
+        <col style="width:10%">
+        <col style="width:15%">
         <col style="width:7%">
-        <col style="width:16%">
+        <col style="width:7%">
+        <col style="width:7%">
+        <col style="width:7%">
+        <col style="width:7%">
+
       </colgroup>
     </ng-template>
     <ng-template pTemplate="header">
@@ -25,21 +25,36 @@
         <th style="text-align: center;" pResizableColumn>Email Model</th>
         <th style="text-align: center;" pResizableColumn>Ativo / Inativo Model</th>
 
-        <th style="text-align: center;" pResizableColumn>Ações</th>
+        <th style="text-align: center;" pResizableColumn>Detalhar</th>
+        <th style="text-align: center;" pResizableColumn>Editar</th>
+        <th style="text-align: center;" pResizableColumn>Deletar (inativar)</th>
+        <th style="text-align: center;" pResizableColumn>Ativar</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-model>
       <tr>
           <td style="text-align: center;">{{model.id}}</td>
 <!--           <td style="text-align: center;">{{model.dataNascimento | date:'dd/MM/yyyy'}}</td> -->
-          <td style="text-align: end;">{{model.nome}}</td>
-          <td style="text-align: end;">{{model.cpf}}</td>
+          <td style="text-align: center;">{{model.nome}}</td>
+          <td style="text-align: center;">{{model.cpf}}</td>
           <td style="text-align: center;">{{model.email}}</td>
           <td style="text-align: center;">{{model.ativoInativo}}</td>
 
           <td style="text-align: center;">
               <button pButton pRipple class="p-button-rounded p-button-sm p-button-info" (click)="openDetalhesDialog(model)"
-              pTooltip="Visualizar detalhes" icon="pi pi-search" label="Visualizar detalhes" iconPos="right"></button>
+              icon="pi pi-search" label="" iconPos="right"></button>
+          </td>
+          <td style="text-align: center;">
+            <button pButton pRipple class="p-button-rounded p-button-warning" (click)="openEditarDialog(model)"
+            icon="pi pi-user-edit" label="" iconPos="right"></button>
+          </td>
+          <td style="text-align: center;">
+            <button pButton pRipple class="p-button-rounded p-button-danger" (click)="deleteDeletarModel()"
+            icon="pi pi-eye-slash" label="" iconPos="right"></button>
+          </td>
+          <td style="text-align: center;">
+            <button pButton pRipple class="p-button-rounded p-button-sm" (click)="putAtivarModel()"
+            icon="pi pi-eye" label="" iconPos="right"></button>
           </td>
       </tr>
     </ng-template>

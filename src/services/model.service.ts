@@ -31,5 +31,20 @@ export class ModelService extends AbstractService<object> {
   public listarPorIdModel(id: string): Observable<any> {
     const url = `http://localhost:8080/api/models/listar/${id}`;
     return this.http.sendGet(url);
-}
+  }
+
+  public atualizarModel(): Observable<any> {
+    const url = `http://localhost:8080/api/models/atualizar`;
+    return this.http.sendPut(url);
+  }
+
+  public deletarPorIdModel(id: string): Observable<any> {
+    const url = `http://localhost:8080/api/models/deletar/${id}`;
+    return this.http.sendDelete(url);
+  }
+
+  public ativarPorIdModel(id: string): Observable<any> {
+    const url = `http://localhost:8080/api/models/ativar/${id}`;
+    return this.http.sendPut(url);
+  }
 }
