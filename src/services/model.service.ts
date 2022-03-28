@@ -27,4 +27,9 @@ export class ModelService extends AbstractService<object> {
     const url = `http://localhost:8080/api/models/listar-todos`;
     return this.http.sendGet(url);
   }
+
+  public listarPorIdModel(id: string): Observable<any> {
+    const url = `http://localhost:8080/api/models/listar/${id}`;
+    return this.http.sendGet(url);
+}
 }

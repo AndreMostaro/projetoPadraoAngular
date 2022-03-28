@@ -1,1 +1,52 @@
-<p>listar-id works!</p>
+<div clas="container">
+  <h1>Consultar Model por ID</h1>
+    <div class="form-group">
+      <p-panel header="Model por ID" styleClass="ml-2 mt-4 col-3">
+        <div class="row g-2 p-fluid p-formgrid p-grid">
+            <div class="p-field  p-col-2">
+              <div class="p-inputgroup">
+                <input type="text" [maxLength]="200" pInputText id="id"
+                [(ngModel)]="id" required class="send" placeholder="Digite o ID desejado"/>
+                <button type="button" pButton pRipple (click)="getListarPorIdModel()" class="send">Pesquisar</button>
+              </div>
+              <small class="p-error" *ngIf="!id && submitted">Campo obrigatório</small>
+            </div>
+        </div>
+      </p-panel>
+    </div>
+
+    <p-panel header="Dados da Model" styleClass="ml-2 mt-2 ">
+      <div class="p-fluid p-formgrid p-grid">
+          <div class="row">
+              <div class="p-field col-3">
+                  <label for="id">ID Model</label>
+                  <input type="text" pInputText id="id" [(ngModel)]="modelObject.id"/>
+              </div>
+              <div class="p-field col-3">
+                <label for="nome">Nome Model</label>
+                <input type="text" pInputText id="nome" [(ngModel)]="modelObject.nome"/>
+              </div>
+<!--               <div class="p-field col-2">
+                <label for="dataNascimento">Data Nascimento</label>
+                <p-calendar id="dataNascimento" [(ngModel)]="modelObjectdataNascimento" [showIcon]="false"
+                [dateFormat]="'dd/mm/yy'" [maxlength]="10" [disabled]="true"></p-calendar>
+              </div> -->
+              <div class="p-field col-3">
+                <label for="cpf">CPF Model</label>
+                <input type="text" pInputText id="cpf" [(ngModel)]="modelObject.cpf"/>
+              </div>
+              <div class="p-field col-3">
+                <label for="email">Email Model</label>
+                <input type="text" pInputText id="email" [(ngModel)]="modelObject.email"/>
+              </div>
+              <div class="p-field col-3">
+                <label for="ativoInativo">Ativo / Inativo Model</label>
+                <input type="text" pInputText id="ativoInativo" [(ngModel)]="modelObject.ativoInativo"/>
+              </div>
+          </div>
+      </div>
+  </p-panel>
+
+</div>
+
+<p-toast></p-toast>

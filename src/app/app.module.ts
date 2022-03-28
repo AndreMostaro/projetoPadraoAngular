@@ -26,7 +26,6 @@ import { MenuEsquerdoComponent } from './menu-esquerdo/menu-esquerdo.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AtivarIdComponent } from './pages/model/ativar-id/ativar-id.component';
 import { CadastrarComponent } from './pages/model/cadastrar/cadastrar.component';
-import { ConsultarPaginadoComponent } from './pages/model/consultar-paginado/consultar-paginado.component';
 import { DeletarIdComponent } from './pages/model/deletar-id/deletar-id.component';
 import { ListarIdComponent } from './pages/model/listar-id/listar-id.component';
 import { ListarTodosComponent } from './pages/model/listar-todos/listar-todos.component';
@@ -39,7 +38,6 @@ import { ListarTodosComponent } from './pages/model/listar-todos/listar-todos.co
     CadastrarComponent,
     ListarTodosComponent,
     ListarIdComponent,
-    ConsultarPaginadoComponent,
     DeletarIdComponent,
     AtivarIdComponent
   ],

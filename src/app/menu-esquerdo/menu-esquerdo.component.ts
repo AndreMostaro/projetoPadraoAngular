@@ -41,10 +41,6 @@ export class MenuEsquerdoComponent implements OnInit {
             routerLink: '/listar-id'
           },
           {
-            label: 'Consultar Paginado',
-            routerLink: '/consultar-paginado'
-          },
-          {
             label: 'Atualizar',
             routerLink: '/atualizar'
           },
