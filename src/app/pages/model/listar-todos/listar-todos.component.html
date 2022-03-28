@@ -23,17 +23,20 @@
         <th style="text-align: center;" pResizableColumn>Nome Model</th>
         <th style="text-align: center;" pResizableColumn>CPF Model</th>
         <th style="text-align: center;" pResizableColumn>Email Model</th>
+        <th style="text-align: center;" pResizableColumn>Ativo / Inativo Model</th>
 
         <th style="text-align: center;" pResizableColumn>Ações</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-model>
       <tr>
-          <td style="text-align: center;">{{model.idModel}}</td>
+          <td style="text-align: center;">{{model.id}}</td>
 <!--           <td style="text-align: center;">{{model.dataNascimento | date:'dd/MM/yyyy'}}</td> -->
           <td style="text-align: end;">{{model.nome}}</td>
           <td style="text-align: end;">{{model.cpf}}</td>
           <td style="text-align: center;">{{model.email}}</td>
+          <td style="text-align: center;">{{model.ativoInativo}}</td>
+
           <td style="text-align: center;">
               <button pButton pRipple class="p-button-rounded p-button-sm p-button-info" (click)="openDetalhesDialog(model)"
               pTooltip="Visualizar detalhes" icon="pi pi-search" label="Visualizar detalhes" iconPos="right"></button>
