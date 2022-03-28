@@ -1,1 +1,107 @@
-<p>listar-todos works!</p>
+<div clas="container">
+  <h1>Listar Todos os Cadastros</h1>
+  <p-table #dt [value]="modelList" [rows]="10" [paginator]="true"
+  styleClass="p-datatable-sm p-datatable-gridlines mt-5">
+    <ng-template pTemplate="colgroup">
+      <colgroup>
+        <col style="width:9%">
+        <col style="width:7%">
+        <col style="width:9%">
+        <col style="width:9%">
+        <col style="width:9%">
+        <col style="width:15%">
+        <col style="width:13%">
+        <col style="width:9%">
+        <col style="width:7%">
+        <col style="width:16%">
+      </colgroup>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="text-align: center;" pResizableColumn>ID Model</th>
+<!--         <th style="text-align: center;" pResizableColumn>Data Nascimento</th> -->
+        <th style="text-align: center;" pResizableColumn>Nome Model</th>
+        <th style="text-align: center;" pResizableColumn>CPF Model</th>
+        <th style="text-align: center;" pResizableColumn>Email Model</th>
+
+        <th style="text-align: center;" pResizableColumn>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-model>
+      <tr>
+          <td style="text-align: center;">{{model.idModel}}</td>
+<!--           <td style="text-align: center;">{{model.dataNascimento | date:'dd/MM/yyyy'}}</td> -->
+          <td style="text-align: end;">{{model.nome}}</td>
+          <td style="text-align: end;">{{model.cpf}}</td>
+          <td style="text-align: center;">{{model.email}}</td>
+          <td style="text-align: center;">
+              <button pButton pRipple class="p-button-rounded p-button-sm p-button-info" (click)="openDetalhesDialog(model)"
+              pTooltip="Visualizar detalhes" icon="pi pi-search" label="Visualizar detalhes" iconPos="right"></button>
+          </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="14" style="text-align: center;">Nenhum registro encontrado.</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+    <div style="text-align: center;">
+    Total de {{modelList ? modelList.length : 0 }} Registros.
+    </div>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-dialog [(visible)]="detalhesDialog" header="Detalhes da Model" [modal]="true"
+styleClass="p-fluid" [style]="{width: '90%'}" >
+
+<p-table #dt [value]="modelDetalhesList" [rows]="10" [paginator]="true"
+  styleClass="p-datatable-sm p-datatable-gridlines mt-5">
+    <ng-template pTemplate="colgroup">
+      <colgroup>
+        <col style="width:7%">
+        <col style="width:7%">
+        <col style="width:7%">
+        <col style="width:7%">
+        <col style="width:7%">
+        <col style="width:7%">
+        <col style="width:7%">
+        <col style="width:7%">
+        <col style="width:7%">
+        <col style="width:7%">
+        <col style="width:7%">
+        <col style="width:7%">
+        <col style="width:7%">
+        <col style="width:7%">
+      </colgroup>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+<!--         <th style="text-align: center;" >Nº Ano Contrato</th>
+        <th style="text-align: center;" >UASG</th> -->
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-contrato>
+      <tr>
+<!--           <td style="text-align: center;">{{contrato.nrAnoContrato}}</td>
+          <td style="text-align: center;">{{contrato.uasg}}</td> -->
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="14" style="text-align: center;">Nenhum registro encontrado.</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+    <div style="text-align: center;">
+    Total de {{modelDetalhesList ? modelDetalhesList.length : 0 }} Registros.
+    </div>
+    </ng-template>
+  </p-table>
+
+  <ng-template pTemplate="footer">
+      <button  pButton pRipple label="Fechar" icon="pi pi-times" class="p-button-sm p-button-rounded p-button-warning"
+      (click)="hideDetalhesDialog()"></button>
+  </ng-template>
+</p-dialog>

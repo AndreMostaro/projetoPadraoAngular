@@ -17,11 +17,14 @@ export class ModelService extends AbstractService<object> {
 
   public cadastrarModel(model: Model): Observable<any> {
     const modelJSON = model
-
     // FORMATAÇÃO PARA DATE TIME
     //modelJSON.dataNascimento = this.datepipe.transform(model.dataNascimento, 'yyyy-MM-dd hh:mm');
-
     const url = `http://localhost:8080/api/models/cadastrar`;
     return this.http.sendPost(url, modelJSON);
-}
+  }
+
+  public listarTodosModel(): Observable<any>  {
+    const url = `http://localhost:8080/api/models/listar-todos`;
+    return this.http.sendGet(url);
+  }
 }

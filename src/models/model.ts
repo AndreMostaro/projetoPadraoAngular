@@ -1,5 +1,10 @@
+import { DetalhesModel } from "./detalhes-model";
+
 export interface Model {
-    nome: string,
-    cpf: string,
-    email: string
+  idModel: string,
+  nome: string,
+  //dataNascimento: Date,
+  cpf: string,
+  email: string,
+  detalhesModel: DetalhesModel[],
 }
