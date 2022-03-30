@@ -1,7 +1,11 @@
+
 import { ModelService } from 'src/services/model.service';
-import { Model } from './../../../../models/model';
+
 import { Component, OnInit } from '@angular/core';
-import { DetalhesModel } from 'src/models/detalhes-model';
+import { DetalhesModel } from 'src/models/detalhes';
+import { EditarModel } from 'src/models/editar';
+import { MockDetalhes } from './mock-data-detalhes';
+import { Model } from 'src/models/model';
 
 @Component({
   selector: 'app-listar-todos',
@@ -15,10 +19,11 @@ export class ListarTodosComponent implements OnInit {
   editarDialog = false;
 
   id: string = "";
-  modelObject: Model | any;
+  //modelObject: Model | any;
 
   modelList: Model[] = [];
   modelDetalhesList: DetalhesModel[] = [];
+  modelEditarList: EditarModel[] = [];
 
   constructor(private modelService: ModelService) {}
 
@@ -42,8 +47,12 @@ export class ListarTodosComponent implements OnInit {
   }
 
   openEditarDialog(model: Model): void {
-
+    this.modelEditarList = model.editarModel;
     this.editarDialog = true;
+  }
+
+  hideEditarDialog(): void {
+    this.editarDialog = false;
   }
 
   deleteDeletarModel(): void {

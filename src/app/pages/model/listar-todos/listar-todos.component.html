@@ -18,13 +18,12 @@
     </ng-template>
     <ng-template pTemplate="header">
       <tr>
-        <th style="text-align: center;" pResizableColumn>ID Model</th>
+        <th style="text-align: center;" pResizableColumn>ID</th>
 <!--         <th style="text-align: center;" pResizableColumn>Data Nascimento</th> -->
-        <th style="text-align: center;" pResizableColumn>Nome Model</th>
-        <th style="text-align: center;" pResizableColumn>CPF Model</th>
-        <th style="text-align: center;" pResizableColumn>Email Model</th>
-        <th style="text-align: center;" pResizableColumn>Ativo / Inativo Model</th>
-
+        <th style="text-align: center;" pResizableColumn>Nome</th>
+        <th style="text-align: center;" pResizableColumn>CPF</th>
+        <th style="text-align: center;" pResizableColumn>Email</th>
+        <th style="text-align: center;" pResizableColumn>Ativo / Inativo</th>
         <th style="text-align: center;" pResizableColumn>Detalhar</th>
         <th style="text-align: center;" pResizableColumn>Editar</th>
         <th style="text-align: center;" pResizableColumn>Deletar (inativar)</th>
@@ -39,7 +38,6 @@
           <td style="text-align: center;">{{model.cpf}}</td>
           <td style="text-align: center;">{{model.email}}</td>
           <td style="text-align: center;">{{model.ativoInativo}}</td>
-
           <td style="text-align: center;">
               <button pButton pRipple class="p-button-rounded p-button-sm p-button-info" (click)="openDetalhesDialog(model)"
               icon="pi pi-search" label="" iconPos="right"></button>
@@ -80,15 +78,7 @@ styleClass="p-fluid" [style]="{width: '90%'}" >
       <colgroup>
         <col style="width:7%">
         <col style="width:7%">
-        <col style="width:7%">
-        <col style="width:7%">
-        <col style="width:7%">
-        <col style="width:7%">
-        <col style="width:7%">
-        <col style="width:7%">
-        <col style="width:7%">
-        <col style="width:7%">
-        <col style="width:7%">
+<!--         <col style="width:7%"> -->
         <col style="width:7%">
         <col style="width:7%">
         <col style="width:7%">
@@ -96,14 +86,23 @@ styleClass="p-fluid" [style]="{width: '90%'}" >
     </ng-template>
     <ng-template pTemplate="header">
       <tr>
-<!--         <th style="text-align: center;" >Nº Ano Contrato</th>
-        <th style="text-align: center;" >UASG</th> -->
+        <th style="text-align: center;" >ID</th>
+        <th style="text-align: center;" >Nome</th>
+<!--         <th style="text-align: center;" >Data Nascimento</th> -->
+        <th style="text-align: center;" >CPF</th>
+        <th style="text-align: center;" >Email</th>
+        <th style="text-align: center;" >Ativo / Inativo</th>
+
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-contrato>
+    <ng-template pTemplate="body" let-detalhes>
       <tr>
-<!--           <td style="text-align: center;">{{contrato.nrAnoContrato}}</td>
-          <td style="text-align: center;">{{contrato.uasg}}</td> -->
+          <td style="text-align: center;">{{detalhes.id}}</td>
+          <td style="text-align: center;">{{detalhes.nome}}</td>
+<!--           <td style="text-align: center;">{{detalhes.dataNascimento}}</td> -->
+          <td style="text-align: center;">{{detalhes.cpf}}</td>
+          <td style="text-align: center;">{{detalhes.email}}</td>
+          <td style="text-align: center;">{{detalhes.ativoInativo}}</td>
       </tr>
     </ng-template>
     <ng-template pTemplate="emptymessage">
@@ -121,5 +120,49 @@ styleClass="p-fluid" [style]="{width: '90%'}" >
   <ng-template pTemplate="footer">
       <button  pButton pRipple label="Fechar" icon="pi pi-times" class="p-button-sm p-button-rounded p-button-warning"
       (click)="hideDetalhesDialog()"></button>
+  </ng-template>
+</p-dialog>
+
+<p-dialog [(visible)]="editarDialog" header="Editar da Model" [modal]="true"
+styleClass="p-fluid" [style]="{width: '90%'}" >
+
+<p-table #dt [value]="modelEditarList" [rows]="10" [paginator]="true"
+  styleClass="p-datatable-sm p-datatable-gridlines mt-5">
+    <ng-template pTemplate="colgroup">
+      <colgroup>
+        <col style="width:7%">
+<!--         <col style="width:7%"> -->
+        <col style="width:7%">
+      </colgroup>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="text-align: center;" >Nome</th>
+<!--         <th style="text-align: center;" >Data Nascimento</th> -->
+        <th style="text-align: center;" >Email</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-editar>
+      <tr>
+        <td style="text-align: center;">{{editar.nome}}</td>
+<!--           <td style="text-align: center;">{{editar.dataNascimento}}</td> -->
+        <td style="text-align: center;">{{editar.email}}</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="14" style="text-align: center;">Nenhum registro encontrado.</td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+    <div style="text-align: center;">
+    Total de {{modelEditarList ? modelEditarList.length : 0 }} Registros.
+    </div>
+    </ng-template>
+  </p-table>
+
+  <ng-template pTemplate="footer">
+      <button  pButton pRipple label="Fechar" icon="pi pi-times" class="p-button-sm p-button-rounded p-button-warning"
+      (click)="hideEditarDialog()"></button>
   </ng-template>
 </p-dialog>

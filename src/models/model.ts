@@ -1,4 +1,5 @@
-import { DetalhesModel } from "./detalhes-model";
+import { DetalhesModel } from "./detalhes";
+import { EditarModel } from "./editar";
 
 export interface Model {
   id: string,
@@ -8,4 +9,5 @@ export interface Model {
   email: string,
   ativoInativo: string,
   detalhesModel: DetalhesModel[],
+  editarModel: EditarModel[],
 }
